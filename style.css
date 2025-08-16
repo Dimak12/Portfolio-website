@@ -429,6 +429,10 @@ section {
   border-radius: 15px;
   margin-bottom: 20px;
 }
+.achievement {
+  display: block; 
+  margin-top: 5px;
+}
 
 /* Contact */
 .contact {
