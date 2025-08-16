@@ -1,4 +1,18 @@
 [
+    {
+    "id": "goodies-store",
+    "title": "Goodies Store",
+    "subtitle": "A Responsive E-commerce Storefront with Vue.js 3",
+    "description": "A dynamic e-commerce web application built with Vue.js, featuring live product data from a REST API, a fully functional shopping cart managed with Pinia, and a responsive design.",
+    "fullDescription": "Goodies Store is a complete front-end for a modern e-commerce platform, built as a Single Page Application (SPA) using Vue.js 3. The project demonstrates a strong command of component-based architecture, asynchronous data handling, and centralized state management.\n\nThe product catalog is dynamically fetched from the live FakeStoreAPI, with a user-friendly loading state to handle network latency. The core shopping cart functionality is powered by Pinia, Vue's official state management library. This allows for a persistent and reactive cart experience where users can add or remove items from any page and see instant updates. The cart view provides a clean summary of items, calculates the subtotal and total, and is designed for a seamless checkout flow.\n\nThe user interface is clean, modern, and fully responsive, utilizing CSS Grid and Flexbox to ensure a perfect layout on any device, from mobile phones to desktops. Navigation is handled by Vue Router, providing instant page transitions.",
+    "technologies": ["Vue.js 3","Pinia","JavaScript","Vite","REST API Integration","State Management","Responsive Design","CSS"],
+    "status": "Completed",
+    "duration": "3 Weeks",
+    "category": "Front-End Web Application",
+    "images": [],
+    "videos": [],
+    "link": "https://goodiesstore.netlify.app"
+  },
   {
     "id": "intrusion-detection",
     "title": "Intrusion Detection System Using Deep Learning",
@@ -25,19 +39,7 @@
     "images": ["assets/images/bus1.png"],
     "videos": []
   },
-  {
-    "id": "goodies-store",
-    "title": "Goodies Store E-commerce Platform",
-    "subtitle": "Modern online shopping experience with intelligent inventory",
-    "description": "Modern online shopping web application with API integration for efficient inventory management and seamless user experience.",
-    "fullDescription": "A full-featured e-commerce web application built with modern web technologies, focusing on user experience and efficient inventory management. The platform integrates multiple APIs for payment processing, shipping, and real-time inventory updates.\n\nThe application features a responsive design that works seamlessly across all devices, advanced search and filtering capabilities, and personalized user recommendations. The admin panel provides comprehensive tools for managing products, orders, and customer relationships.\n\nSecurity features include encrypted payment processing, user authentication, and data protection measures compliant with international standards.",
-    "technologies": ["JavaScript", "Vue.js", "REST API", "Web Development", "Payment Integration", "Responsive Design"],
-    "status": "Completed",
-    "duration": "4 months",
-    "category": "Web Development",
-    "images": ["assets/images/goodies1.png"],
-    "videos": []
-  },
+  
   {
     "id": "solar-controller",
     "title": "Solar Charge Controller",

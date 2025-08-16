@@ -369,6 +369,24 @@ section {
   justify-content: flex-start;
 }
 
+.project-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.project-link:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: translateY(-2px);
+  color: #ffd700;
+}
+
 .tech-tag {
   background: #f0f0f0;
   color: #667eea;
