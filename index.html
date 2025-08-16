@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plandi Makali - Computer Engineer</title>
+  <!-- Font Awesome Icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <!-- Left: Profile picture -->
+    <div class="nav-left">
+      <a href="#home" class="nav-logo">
+        <img src="assets/images/me-resized.jpg" alt="Plandi Makali" />
+      </a>
+    </div>
+
+    <!-- Center: Navigation links -->
+    <div class="nav-center">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Empty for now -->
+    <div class="nav-right"></div>
+  </div>
+</nav>
+
+  <!-- Hero -->
+  <header>
+    <div class="header-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Plandi Makali</h1>
+        <p class="hero-subtitle">Computer Engineer & AI Enthusiast</p>
+        <p class="hero-description">
+          Honours student specializing in intelligent systems, deep learning, and innovative technology solutions.
+        </p>
+        <div class="cta-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-image"><img src="assets/images/me.jpg" alt="Plandi Makali" class="profile-pic"></div>
+        <div class="about-text">
+          <p>
+            I'm a dedicated <strong>Computer Engineering Honours student</strong> at Cape Peninsula University of Technology, 
+            with a passion for artificial intelligence and cybersecurity. My academic journey has been marked by 
+            consistent excellence, achieving <strong>Cum Laude</strong> honors and maintaining a position in the 
+            <strong>top 1%</strong> of my class.
+          </p>
+          <p>
+            Currently working at <strong>Koolboks Nigeria</strong>, I collaborate with back-end and AI teams to develop 
+            intelligent systems and innovative product solutions. My technical expertise spans software development, 
+            networking, and emerging technologies, with a particular focus on applying AI in real-world contexts.
+          </p>
+          <p>
+            Beyond academics and work, I'm actively involved in the tech community, having volunteered at major 
+            conferences like IEEE GLOBECOM 2024 and AfricArena 2023. I believe in continuous learning and staying 
+            at the forefront of technological innovation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Software & Web Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PHP</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Databases & Systems</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">SDN</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Networking</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Cisco IOS XRv</span>
+            <span class="skill-tag">OpenDaylight</span>
+            <span class="skill-tag">BGP</span>
+            <span class="skill-tag">MPLS</span>
+            <span class="skill-tag">Network Protocols</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Specialized Areas</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">AI Solutions</span>
+            <span class="skill-tag">Cybersecurity</span>
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">RFID</span>
+            <span class="skill-tag">GPS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="experience-item">
+        <div class="experience-header">
+          <div>
+            <div class="company-name">Koolboks Nigeria</div>
+            <div style="color: #666; margin-top: 5px;">AI & Product Development</div>
+          </div>
+          <div class="date">Jan 2025 – Present</div>
+        </div>
+        <ul style="margin-left: 20px; line-height: 1.8;">
+          <li>Collaborate closely with back-end and AI teams on intelligent systems development</li>
+          <li>Apply AI-driven solutions in real-world product contexts</li>
+          <li>Contribute to innovative product development initiatives</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education-item">
+        <div class="degree">BEng Tech Honours in Computer Engineering</div>
+        <div class="university">Cape Peninsula University of Technology</div>
+        <div class="date">2024 – Present</div>
+      </div>
+      <div class="education-item">
+        <div class="degree">Bachelor of Eng Tech in Computer Engineering</div>
+        <div class="university">Cape Peninsula University of Technology</div>
+        <div class="date">2022 – 2023</div>
+        <div>
+          <span class="achievement">Honours: Cum Laude</span>
+          <span class="achievement">Average: 82%</span>
+        </div>
+      </div>
+      <div class="education-item">
+        <div class="degree">Diploma of Eng Tech in Computer Engineering</div>
+        <div class="university">Cape Peninsula University of Technology</div>
+        <div class="date">2020 – 2021</div>
+        <div>
+          <span class="achievement">Average: 85%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="awards">
+    <div class="container">
+      <h2 class="section-title">Awards & Achievements</h2>
+      <div class="award-item">
+        <div class="award-title">Dean's Excellence Award 2023</div>
+        <p>Best Bachelor of Engineering Technology student in the Department of Electrical, Electronic and Computer Engineering</p>
+      </div>
+      <div class="award-item">
+        <div class="award-title">Dean's Excellence Awards 2021</div>
+        <p>Top achiever for Diploma in Engineering Technology in Computer Engineering</p>
+      </div>
+      <div class="award-item">
+        <div class="award-title">Top 1% Academic Placement</div>
+        <p>Consistently ranked among the top 1% of students throughout BEng Tech and Diploma programs</p>
+      </div>
+      <div class="award-item">
+        <div class="award-title">Academic Excellence</div>
+        <p>26 Distinctions out of 31 subjects completed from Diploma through Honours</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p>I'm always interested in discussing new opportunities, innovative projects, or collaborations in AI and engineering.</p>
+    
+    <div class="contact-info">
+
+      <a href="mailto:makalicardoso@gmail.com" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-label">Email</div>
+        <div class="contact-text">makalicardoso@gmail.com</div>
+      </a>
+
+      <a href="tel:+27682622669" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-text">068 262 2669</div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/plandimakali" target="_blank" class="contact-item">
+        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-text">linkedin.com/in/plandimakali</div>
+      </a>
+
+      <a href="https://github.com/Dimak12" target="_blank" class="contact-item">
+        <div class="contact-icon"><i class="fab fa-github"></i></div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-text">github.com/Dimak12</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Plandi Makali. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

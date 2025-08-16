@@ -1,0 +1,80 @@
+[
+  {
+    "id": "intrusion-detection",
+    "title": "Intrusion Detection System Using Deep Learning",
+    "subtitle": "Advanced cybersecurity solution for hybrid SDN environments",
+    "description": "Advanced deep learning system for hybrid Software-Defined Networking (SDN) environments.",
+    "fullDescription": "This cutting-edge project focuses on developing an intelligent intrusion detection system specifically designed for hybrid Software-Defined Networking (SDN) environments. The system leverages deep learning algorithms to identify and classify network threats in real-time.\n\nThe project addresses the growing security challenges in modern network infrastructures by combining traditional network monitoring with AI-driven threat detection. The hybrid SDN approach allows for dynamic network management while maintaining robust security protocols.\n\nKey innovations include adaptive learning algorithms that can identify previously unknown attack patterns and integration with existing network management systems for seamless deployment.",
+    "technologies": ["Deep Learning", "SDN", "Cybersecurity", "Python", "TensorFlow", "OpenDaylight", "Network Analysis"],
+    "status": "In Progress",
+    "duration": "Jan 2025 - Present",
+    "category": "Research & Development",
+    "images": [],
+    "videos": []
+  },
+  {
+    "id": "bus-monitoring",
+    "title": "School Bus Monitoring System",
+    "subtitle": "Real-time student safety and tracking solution",
+    "description": "Comprehensive tracking solution using RFID technology, GPS positioning, and Azure-hosted database.",
+    "fullDescription": "A comprehensive safety solution designed to enhance student transportation security through advanced tracking and monitoring capabilities. The system integrates RFID technology for student identification, GPS for real-time location tracking, and cloud-based data management.\n\nThe platform provides parents and school administrators with real-time updates on student boarding, bus location, and arrival times. Emergency protocols are built into the system to ensure rapid response to any incidents.\n\nThe Azure-hosted database ensures scalability and reliability while maintaining data privacy compliance. The system also includes mobile applications for parents and web dashboards for school administrators.",
+    "technologies": ["RFID", "GPS", "Azure", "Database", "Mobile Development", "Real-time Systems", "Cloud Computing"],
+    "status": "Completed",
+    "duration": "6 months",
+    "category": "IoT & Safety",
+    "images": ["assets/images/bus1.png"],
+    "videos": []
+  },
+  {
+    "id": "goodies-store",
+    "title": "Goodies Store E-commerce Platform",
+    "subtitle": "Modern online shopping experience with intelligent inventory",
+    "description": "Modern online shopping web application with API integration for efficient inventory management and seamless user experience.",
+    "fullDescription": "A full-featured e-commerce web application built with modern web technologies, focusing on user experience and efficient inventory management. The platform integrates multiple APIs for payment processing, shipping, and real-time inventory updates.\n\nThe application features a responsive design that works seamlessly across all devices, advanced search and filtering capabilities, and personalized user recommendations. The admin panel provides comprehensive tools for managing products, orders, and customer relationships.\n\nSecurity features include encrypted payment processing, user authentication, and data protection measures compliant with international standards.",
+    "technologies": ["JavaScript", "Vue.js", "REST API", "Web Development", "Payment Integration", "Responsive Design"],
+    "status": "Completed",
+    "duration": "4 months",
+    "category": "Web Development",
+    "images": ["assets/images/goodies1.png"],
+    "videos": []
+  },
+  {
+    "id": "solar-controller",
+    "title": "Solar Charge Controller",
+    "subtitle": "Intelligent energy management for renewable power systems",
+    "description": "Arduino-based intelligent energy management system for solar power applications with optimized charging algorithms.",
+    "fullDescription": "An Arduino-based intelligent charge controller designed to optimize solar energy harvesting and battery management. The system implements advanced algorithms to maximize energy efficiency while protecting battery life through smart charging protocols.\n\nThe controller features real-time monitoring of solar panel output, battery status, and load consumption. It automatically adjusts charging parameters based on environmental conditions and energy demand patterns.\n\nThe project contributes to sustainable energy solutions by improving the efficiency of solar power systems, making renewable energy more accessible and reliable for various applications.",
+    "technologies": ["Arduino", "C", "Energy Management", "IoT", "Embedded Systems", "Renewable Energy", "Sensor Integration"],
+    "status": "Completed",
+    "duration": "3 months",
+    "category": "Embedded Systems",
+    "images": ["assets/images/Solar charge controller/Final circuit design.png", "assets/images/Solar charge controller/Physical solar charge.png"],
+    "videos": []
+  },
+  {
+    "id": "serviceme",
+    "title": "ServiceMe Platform",
+    "subtitle": "Connecting homeowners with trusted service providers",
+    "description": "Web application connecting homeowners with housecleaning and gardening service providers, featuring booking and payment systems.",
+    "fullDescription": "A comprehensive web platform that bridges the gap between homeowners seeking household services and qualified service providers. The application features sophisticated matching algorithms to connect users with the most suitable service providers based on location, availability, and service requirements.\n\nThe platform includes integrated booking systems, secure payment processing, rating and review systems, and real-time communication tools. Service providers can manage their schedules, track earnings, and build their professional profiles.\n\nAdvanced features include automated invoicing, service history tracking, and quality assurance protocols to ensure consistent service delivery.",
+    "technologies": ["Web Development", "JavaScript", "Database", "PHP", "Payment Systems", "Geolocation", "User Authentication"],
+    "status": "Completed",
+    "duration": "5 months",
+    "category": "Web Application",
+    "images": [],
+    "videos": ["assets/videos/Service Me updated 2.mp4"]
+  },
+  {
+    "id": "connect-social",
+    "title": "Connect Social Platform",
+    "subtitle": "Next-generation social networking with real-time interactions",
+    "description": "Twitter-like social networking platform with real-time messaging, user interactions, and modern responsive design.",
+    "fullDescription": "A modern social networking platform inspired by Twitter but enhanced with contemporary features and improved user experience. The platform focuses on real-time communication, content sharing, and community building with advanced privacy controls.\n\nKey features include instant messaging, multimedia content sharing, trending topics analysis, and personalized content feeds powered by machine learning algorithms. The platform emphasizes user privacy and content moderation to create a safe online environment.\n\nThe responsive design ensures optimal performance across all devices, while the scalable backend architecture supports thousands of concurrent users with minimal latency.",
+    "technologies": ["Social Media", "Real-time", "Web Development", "Database", "WebSockets", "Content Management", "User Authentication"],
+    "status": "Completed",
+    "duration": "6 months",
+    "category": "Social Platform",
+    "images": [],
+    "videos": ["assets/videos/Connect_presentation.mp4"]
+  }
+]
