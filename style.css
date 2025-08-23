@@ -92,9 +92,10 @@ nav {
 .nav-center ul {
   list-style: none;
   display: flex;
-  gap: 25px;
   margin: 0;
   padding: 0;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .nav-center a {
@@ -111,6 +112,44 @@ nav {
 /* Right section (empty for now) */
 .nav-right {
   flex: 1;
+}
+
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-center {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.95);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .nav-center.active {
+    display: flex;
+  }
+
+  .nav-center ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
 }
 
 /* Prevent content from hiding behind nav */
@@ -730,6 +769,9 @@ footer {
     height: 200px;
     font-size: 6rem;
   }
+  .projects-grid {
+    grid-template-columns: 1fr; /* single column on small screens */
+  }
 }
 
 /* Modal */
@@ -765,6 +807,21 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
   color: #666;
+}
+
+#modal-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+#modal-skills .skill-tag {
+  max-width: 100%;          /* don’t exceed modal width */
+  white-space: normal;      /* allow text to wrap */
+  word-break: break-word;   /* break long words if needed */
+  text-align: center;       /* keep text centered */
 }
 
 @keyframes fadeIn {

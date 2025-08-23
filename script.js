@@ -176,7 +176,7 @@ const skillsData = {
       "Cisco IOS XRv",
       "OpenDaylight",
       "GNS3 / QEMU",
-      "Network Protocols (BGP, MPLS, TCP/IP, PCEP)"
+      "Network Protocols"
     ],
   },
   iot: {
@@ -251,5 +251,24 @@ if (modal) {
 
   window.addEventListener("click", (e) => {
     if (e.target === modal) modal.classList.add("hidden");
+  });
+}
+
+// ===============================
+// Mobile Navigation Toggle
+// ===============================
+const menuToggle = document.querySelector(".menu-toggle");
+const navCenter = document.querySelector(".nav-center");
+
+if (menuToggle && navCenter) {
+  menuToggle.addEventListener("click", () => {
+    navCenter.classList.toggle("active");
+  });
+
+  // Close menu when clicking a link
+  navCenter.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navCenter.classList.remove("active");
+    });
   });
 }
