@@ -9,20 +9,37 @@ if (document.getElementById("projects-grid")) {
       projects.forEach((p) => {
         const card = document.createElement("div");
         card.className = "project-card";
-        card.innerHTML = `
+
+        // Limit description to 3 lines (CSS handles truncation)
+        const description = `
           <div class="project-header">
             <div class="project-title">${p.title}</div>
             <div class="project-description">${p.description}</div>
-          </div>
-          <div class="project-tech">
-            ${p.technologies
-              .map((t) => `<span class="tech-tag">${t}</span>`)
-              .join("")}
+            <a class="read-more">Read more →</a>
           </div>
         `;
+
+        // Limit tags to 5, then add "+X more"
+        const maxTags = 5;
+        let tagsHTML = "";
+        p.technologies.forEach((t, i) => {
+          if (i < maxTags) {
+            tagsHTML += `<span class="tech-tag">${t}</span>`;
+          }
+        });
+        if (p.technologies.length > maxTags) {
+          tagsHTML += `<span class="tech-tag more">+${p.technologies.length - maxTags} more</span>`;
+        }
+
+        const techSection = `<div class="project-tech">${tagsHTML}</div>`;
+
+        card.innerHTML = description + techSection;
+
+        // Click → go to project details page
         card.addEventListener("click", () => {
           window.location.href = `project.html?id=${p.id}`;
         });
+
         grid.appendChild(card);
       });
     })
@@ -56,10 +73,7 @@ if (window.location.pathname.includes("project.html")) {
 
         // Full description
         const descContainer = document.getElementById("project-description");
-        descContainer.innerHTML = project.fullDescription
-          .split("\n\n")
-          .map((p) => `<p>${p}</p>`)
-          .join("");
+        descContainer.innerHTML = marked.parse(project.fullDescription);
 
         // Add live demo link if available
         if (project.link) {
@@ -117,4 +131,125 @@ if (window.location.pathname.includes("project.html")) {
       }
     })
     .catch((err) => console.error("Error loading project details:", err));
+}
+
+// ===============================
+// Skills Modal System
+// ===============================
+const skillsData = {
+  dev: {
+    title: "Programming & Development",
+    skills: [
+      "Java",
+      "JavaScript (ES6+)",
+      "Python",
+      "C/C++",
+      "PHP",
+      "Full-Stack Web Development (Vue.js, REST APIs, MySQL)",
+    ],
+  },
+  cloud: {
+    title: "Databases & Cloud",
+    skills: [
+      "MySQL",
+      "Microsoft Azure",
+      "API-driven Data Management"
+    ],
+  },
+  ai: {
+    title: "Artificial Intelligence & Cybersecurity",
+    skills: [
+      "Machine Learning",
+      "Deep Learning",
+      "TensorFlow / Keras / PyTorch",
+      "Scikit-learn",
+      "Pandas / NumPy",
+      "Intrusion Detection Systems",
+      "Cybersecurity Tools"
+    ],
+  },
+  networking: {
+    title: "Networking & Systems",
+    skills: [
+      "Software-Defined Networking (SDN)",
+      "Cisco IOS XRv",
+      "OpenDaylight",
+      "GNS3 / QEMU",
+      "Network Protocols (BGP, MPLS, TCP/IP)",
+    ],
+  },
+  iot: {
+    title: "Embedded Systems & IoT",
+    skills: [
+      "Arduino / ESP32",
+      "RFID & GPS",
+      "IoT Solutions (Azure IoT, Twilio)",
+      "Battery & Energy Management",
+    ],
+  },
+  tools: {
+    title: "Tools & Productivity",
+    skills: [
+      "Git / GitHub",
+      "Tinkercad",
+      "Microsoft Office Suite",
+      "Simulation & Prototyping Tools",
+    ],
+  },
+};
+
+// ===============================
+// Populate skill previews in cards (NEW LOGIC)
+// ===============================
+document.querySelectorAll(".skill-category.modal-trigger").forEach((card) => {
+  const key = card.dataset.skill;
+  const tagsContainer = card.querySelector(".skill-tags");
+
+  if (skillsData[key]) {
+    const maxPreview = 5; // show up to 5 skills
+    const skills = skillsData[key].skills;
+
+    // Add preview skills
+    skills.slice(0, maxPreview).forEach((s) => {
+      const tag = document.createElement("span");
+      tag.className = "skill-tag";
+      tag.textContent = s;
+      tagsContainer.appendChild(tag);
+    });
+
+    // Add "+X more" if there are hidden skills
+    if (skills.length > maxPreview) {
+      const moreTag = document.createElement("span");
+      moreTag.className = "skill-tag more-hint";
+      moreTag.textContent = `+${skills.length - maxPreview} more`;
+      tagsContainer.appendChild(moreTag);
+    }
+  }
+});
+
+// Modal logic
+const modal = document.getElementById("skill-modal");
+if (modal) {
+  const modalTitle = document.getElementById("modal-title");
+  const modalSkills = document.getElementById("modal-skills");
+  const closeBtn = document.querySelector(".modal .close");
+
+  document.querySelectorAll(".modal-trigger").forEach((card) => {
+    card.addEventListener("click", () => {
+      const key = card.dataset.skill;
+      modalTitle.textContent = skillsData[key].title;
+      modalSkills.innerHTML = skillsData[key].skills
+        .map((s) => `<span class="skill-tag">${s}</span>`)
+        .join("");
+      modal.classList.remove("hidden");
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
 }
