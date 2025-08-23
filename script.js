@@ -137,8 +137,9 @@ if (window.location.pathname.includes("project.html")) {
 // Skills Modal System
 // ===============================
 const skillsData = {
+  // CATEGORY 1: Consolidated
   dev: {
-    title: "Programming & Development",
+    title: "Software Development & Cloud",
     skills: [
       "Python",
       "Java",
@@ -147,17 +148,13 @@ const skillsData = {
       "C/C++",
       "PHP",
       "REST APIs",
-      "Full-Stack",
-    ],
-  },
-  cloud: {
-    title: "Databases & Cloud",
-    skills: [
+      "Full-Stack Development",
       "MySQL",
       "Microsoft Azure",
-      "API-driven Data Management"
+      "API-driven Data Management",
     ],
   },
+  // CATEGORY 2: No Change
   ai: {
     title: "Artificial Intelligence & Cybersecurity",
     skills: [
@@ -165,52 +162,49 @@ const skillsData = {
       "Deep Learning",
       "EDA",
       "Intrusion Detection Systems",
-      "Cybersecurity Tools"
+      "Cybersecurity Tools",
     ],
   },
+  // CATEGORY 3: Consolidated
   networking: {
-    title: "Networking & Systems",
+    title: "Networking & Embedded Systems",
     skills: [
       "CCNA 1 & 2",
-      "SDN",
+      "Software-Defined Networking (SDN)",
       "Cisco IOS XRv",
       "OpenDaylight",
       "GNS3 / QEMU",
-      "Network Protocols"
-    ],
-  },
-  iot: {
-    title: "Embedded Systems & IoT",
-    skills: [
+      "Network Protocols",
       "Arduino / ESP32",
       "RFID & GPS",
-      "IoT Solutions (Azure IoT, Twilio)"
+      "IoT Solutions (Azure IoT, Twilio)",
     ],
   },
+  // CATEGORY 4: No Change
   tools: {
     title: "Tools & Productivity",
     skills: [
       "Git / GitHub",
       "Matlab",
       "Microsoft Office Suite",
-      "Tinkercad"
+      "Tinkercad",
     ],
   },
+  // CATEGORY 5: No Change
   soft: {
-  title: "Soft Skills",
-  skills: [
-    "Communication",
-    "Collaboration",
-    "Problem Solving",
-    "Leadership",
-    "Adaptability",
-    "Fast learner",
-    
-    "Time Management",
-    "Critical Thinking",
-    "Continuous Learning"
-  ],
-},
+    title: "Soft Skills",
+    skills: [
+      "Communication",
+      "Collaboration",
+      "Problem Solving",
+      "Leadership",
+      "Adaptability",
+      "Fast learner",
+      "Time Management",
+      "Critical Thinking",
+      "Continuous Learning",
+    ],
+  },
 };
 
 // ===============================
