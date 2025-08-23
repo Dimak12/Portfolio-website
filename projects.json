@@ -60,8 +60,9 @@
   "status": "Completed",
   "duration": "6 months",
   "category": "IoT & Safety",
-  "images": [],
-  "videos": [] 
+  "images": ["assets/images/bus_monitoring/Sys Design.png","assets/images/bus_monitoring/restricted access.png", "assets/images/bus_monitoring/Management system.png", "assets/images/bus_monitoring/GPS tracking.png", "assets/images/bus_monitoring/SMS alert.jpg", "assets/images/bus_monitoring/Student logs.png"],
+  "videos": [],
+  "github": "https://github.com/Dimak12/schoolBusMonitoring" 
 },
   
   {
@@ -84,7 +85,8 @@
   "duration": "3 months",
   "category": "Embedded Systems",
   "images": ["assets/images/Solar charge controller/Final circuit design.png", "assets/images/Solar charge controller/Physical solar charge.png"],
-  "videos": []
+  "videos": [],
+  "github": "https://github.com/Dimak12/Solar-charge-Controller"
 },
   {
   "id": "serviceme",
@@ -104,7 +106,8 @@
   "duration": "5 months",
   "category": "Web Application",
   "images": [],
-  "videos": ["assets/videos/Service Me updated 2.mp4"]
+  "videos": ["assets/videos/Service Me updated 2.mp4"],
+  "github": "https://github.com/Dimak12/ServiceMe"
   },
   {
   "id": "connect-social",
@@ -127,6 +130,7 @@
   "duration": "6 months",
   "category": "Social Platform",
   "images": [],
-  "videos": ["assets/videos/Connect_presentation.mp4"]
+  "videos": ["assets/videos/Connect_presentation.mp4"],
+  "github": "https://github.com/Dimak12/Connect"
 }
 ]

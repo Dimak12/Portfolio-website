@@ -140,12 +140,14 @@ const skillsData = {
   dev: {
     title: "Programming & Development",
     skills: [
-      "Java",
-      "JavaScript (ES6+)",
       "Python",
+      "Java",
+      "Vue.JS",
+      "JavaScript (ES6+)",
       "C/C++",
       "PHP",
-      "Full-Stack Web Development (Vue.js, REST APIs, MySQL)",
+      "REST APIs",
+      "Full-Stack",
     ],
   },
   cloud: {
@@ -161,9 +163,7 @@ const skillsData = {
     skills: [
       "Machine Learning",
       "Deep Learning",
-      "TensorFlow / Keras / PyTorch",
-      "Scikit-learn",
-      "Pandas / NumPy",
+      "EDA",
       "Intrusion Detection Systems",
       "Cybersecurity Tools"
     ],
@@ -171,11 +171,12 @@ const skillsData = {
   networking: {
     title: "Networking & Systems",
     skills: [
-      "Software-Defined Networking (SDN)",
+      "CCNA 1 & 2",
+      "SDN",
       "Cisco IOS XRv",
       "OpenDaylight",
       "GNS3 / QEMU",
-      "Network Protocols (BGP, MPLS, TCP/IP)",
+      "Network Protocols (BGP, MPLS, TCP/IP, PCEP)"
     ],
   },
   iot: {
@@ -183,17 +184,16 @@ const skillsData = {
     skills: [
       "Arduino / ESP32",
       "RFID & GPS",
-      "IoT Solutions (Azure IoT, Twilio)",
-      "Battery & Energy Management",
+      "IoT Solutions (Azure IoT, Twilio)"
     ],
   },
   tools: {
     title: "Tools & Productivity",
     skills: [
       "Git / GitHub",
-      "Tinkercad",
+      "Matlab",
       "Microsoft Office Suite",
-      "Simulation & Prototyping Tools",
+      "Tinkercad"
     ],
   },
 };
@@ -206,7 +206,7 @@ document.querySelectorAll(".skill-category.modal-trigger").forEach((card) => {
   const tagsContainer = card.querySelector(".skill-tags");
 
   if (skillsData[key]) {
-    const maxPreview = 5; // show up to 5 skills
+    const maxPreview = 5 // show up to 5 skills
     const skills = skillsData[key].skills;
 
     // Add preview skills

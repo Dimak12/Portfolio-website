@@ -317,7 +317,7 @@ section {
 }
 
 .skill-category {
-  min-height: 240px; /* slightly taller for 5 tags */
+  min-height: 200px; /* slightly taller for 5 tags */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
