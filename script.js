@@ -196,6 +196,21 @@ const skillsData = {
       "Tinkercad"
     ],
   },
+  soft: {
+  title: "Soft Skills",
+  skills: [
+    "Communication",
+    "Collaboration",
+    "Problem Solving",
+    "Leadership",
+    "Adaptability",
+    "Fast learner",
+    
+    "Time Management",
+    "Critical Thinking",
+    "Continuous Learning"
+  ],
+},
 };
 
 // ===============================
