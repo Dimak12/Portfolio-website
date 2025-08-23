@@ -34,18 +34,31 @@ nav {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; /* no vertical padding so height stays fixed */
+  padding: 0 20px;
   display: flex;
-  align-items: center;
+  align-items: center;   /* ✅ ensures vertical alignment */
   justify-content: space-between;
   width: 100%;
 }
 
-/* Left section (profile picture) */
+/* Left (profile picture) */
 .nav-left {
-  flex: 1;
   display: flex;
   align-items: center;
+}
+
+/* Center (links) */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* ✅ take available space */
+}
+
+/* Right (burger icon) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-logo img {
@@ -82,19 +95,12 @@ nav {
   border-color: #ffd700;
 }
 
-/* Center section (links) */
-.nav-center {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-}
-
 .nav-center ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
 }
 
@@ -109,11 +115,6 @@ nav {
   color: #ffd700;
 }
 
-/* Right section (empty for now) */
-.nav-right {
-  flex: 1;
-}
-
 /* Hide hamburger on desktop */
 .menu-toggle {
   display: none;
@@ -122,6 +123,7 @@ nav {
   font-size: 1.8rem;
   color: white;
   cursor: pointer;
+  line-height: 1; /* ✅ prevents vertical misalignment */
 }
 
 /* Mobile nav */
@@ -135,7 +137,9 @@ nav {
     display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 20px 0;
+    text-align: center;
   }
 
   .nav-center.active {
@@ -145,11 +149,19 @@ nav {
   .nav-center ul {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
+    justify-content: center;
   }
 
   .menu-toggle {
-    display: block;
+    display: block; /* ✅ show burger on mobile */
   }
+
+  .nav-center li {
+  width: 100%;
+  text-align: center; /* ✅ center each link */
+  }
+
 }
 
 /* Prevent content from hiding behind nav */
@@ -196,6 +208,12 @@ header {
   height: 100%;
   opacity: 0.1;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    background-attachment: scroll; /* fallback for mobile */
+  }
 }
 .hero-content {
   z-index: 2;
@@ -274,6 +292,19 @@ header {
   color: white;
 }
 
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .cta-buttons {
+  flex-direction: column;
+  gap: 15px;
+  }
+}
+
 /* Sections */
 section {
   padding: 100px 0;
@@ -342,7 +373,7 @@ section {
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-  min-height: 220px; /* increase height so 5 skills fit nicely */
+  min-height: 200px; /* increase height so 5 skills fit nicely */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -353,13 +384,6 @@ section {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-.skill-category {
-  min-height: 200px; /* slightly taller for 5 tags */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 .skill-tags {
@@ -815,6 +839,7 @@ footer {
   gap: 8px;
   max-width: 100%;
   overflow-x: hidden; /* prevent horizontal scroll */
+  justify-content: flex-start;
 }
 
 #modal-skills .skill-tag {
@@ -822,6 +847,14 @@ footer {
   white-space: normal;      /* allow text to wrap */
   word-break: break-word;   /* break long words if needed */
   text-align: center;       /* keep text centered */
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    padding: 20px;
+  }
 }
 
 @keyframes fadeIn {
