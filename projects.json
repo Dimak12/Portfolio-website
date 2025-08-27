@@ -22,6 +22,37 @@
   "videos": [],
   "link": "https://goodiesstore.netlify.app"
   },
+
+  {
+    "id": "digit-recognition",
+    "title": "Digit Recognition (ANN)",
+    "subtitle": "Artificial Neural Network trained on MNIST and custom handwritten digits",
+    "description": "Built an ANN in TensorFlow/Keras to classify handwritten digits. Achieved ~97.6% accuracy on MNIST and ~60% on custom handwritten data.",
+    "fullDescription": "This project involved developing an **Artificial Neural Network (ANN)** to recognize handwritten digits (0–9). The model was implemented in **TensorFlow/Keras** and trained on the **MNIST dataset** (60,000 training images, 10,000 test images).\n\n### 🧩 Part 1: Training on MNIST\n- Preprocessed and normalized 28×28 grayscale digit images.\n- Flattened images into 784-feature vectors.\n- Built a 4-layer ANN with ReLU, Tanh, Sigmoid, and Softmax activations.\n- Achieved **~97.6% accuracy** on the MNIST test set.\n\n### ✍️ Part 2: Testing on Custom Data\n- Collected and preprocessed own handwritten digit images (resized, grayscale, normalized).\n- Evaluated the trained ANN on this dataset.\n- Achieved **~60% accuracy** — highlighting the challenges of domain shift (real-world handwriting vs. MNIST).\n\n### 📊 Key Learnings\n- Importance of **data preprocessing** (normalization, resizing).\n- How **activation functions, epochs, and learning rate** affect ANN performance.\n- Realized the need for **data augmentation** and more diverse training data to improve generalization.\n\n### 🔮 Future Improvements\n- Use a **Convolutional Neural Network (CNN)** for better feature extraction.\n- Apply **data augmentation** (rotation, scaling, shifting) to improve generalization.\n- Collect a larger and more diverse custom dataset.",
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "PIL"
+    ],
+    "status": "Completed",
+    "duration": "2 weeks",
+    "category": "AI & Machine Learning",
+    "images": [
+      "assets/images/digit-recognition/mnist-samples.png",
+      "assets/images/digit-recognition/mnist-confusion.png",
+      "assets/images/digit-recognition/training-accuracy.png",
+      "assets/images/digit-recognition/custom-samples.png",
+      "assets/images/digit-recognition/custom-confusion.png",
+      "assets/images/digit-recognition/accuracy.png"
+    ],
+    "videos": [],
+    "github": "https://github.com/Dimak12/DigitsRecognition/tree/main"
+  },
+
   {
   "id": "intrusion-detection",
   "title": "Deep Learning Based IDS",
@@ -49,7 +80,7 @@
   "category": "Research & Development",
   "images": [],
   "videos": []
-},
+  },
   {
   "id": "bus-monitoring",
   "title": "School Bus Monitoring System",
@@ -63,7 +94,7 @@
   "images": ["assets/images/bus_monitoring/Sys Design.png","assets/images/bus_monitoring/restricted access.png", "assets/images/bus_monitoring/Management system.png", "assets/images/bus_monitoring/GPS tracking.png", "assets/images/bus_monitoring/SMS alert.jpg", "assets/images/bus_monitoring/Student logs.png"],
   "videos": [],
   "github": "https://github.com/Dimak12/schoolBusMonitoring" 
-},
+  },
   
   {
   "id": "solar-controller",
@@ -87,7 +118,7 @@
   "images": ["assets/images/Solar charge controller/Final circuit design.png", "assets/images/Solar charge controller/Physical solar charge.png"],
   "videos": [],
   "github": "https://github.com/Dimak12/Solar-charge-Controller"
-},
+  },
   {
   "id": "serviceme",
   "title": "ServiceMe Platform",
@@ -132,5 +163,5 @@
   "images": [],
   "videos": ["assets/videos/Connect_presentation.mp4"],
   "github": "https://github.com/Dimak12/Connect"
-}
+  }
 ]
