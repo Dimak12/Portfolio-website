@@ -64,10 +64,6 @@ if (window.location.pathname.includes("project.html")) {
           project.subtitle;
 
         // Meta info
-        document.getElementById("project-status").textContent =
-          "Status: " + project.status;
-        document.getElementById("project-duration").textContent =
-          "Duration: " + project.duration;
         document.getElementById("project-category").textContent =
           "Category: " + project.category;
 
