@@ -1,26 +1,63 @@
 [
-    {
-  "id": "goodies-store",
-  "title": "Goodies Store",
-  "subtitle": "A responsive e-commerce storefront built with Vue.js 3",
-  "description": "A dynamic e-commerce web application featuring live product data, a shopping cart with state management, and a responsive design.",
-  "fullDescription": "Goodies Store is a modern e-commerce web application built as a Single Page Application (SPA) using Vue.js 3 and Vite. It demonstrates strong command of component-based architecture, state management, and API integration.\n\n**Key Features:**\n- **Product Catalog**: Products are dynamically fetched from a REST API (FakeStoreAPI) and displayed with loading states.\n- **Shopping Cart**: Powered by Pinia (Vue's state management library), the cart allows users to add/remove items, view totals, and persist cart state across pages.\n- **Routing**: Vue Router enables smooth navigation between Home, Products, Cart, About, and Contact pages.\n- **Responsive Design**: Built with CSS Grid and Flexbox to ensure a seamless experience across devices.\n- **Reusable Components**: Header and Footer components provide consistent layout and navigation.\n\nThis project highlights front-end engineering skills, including API integration, state management, and responsive UI design.",
-  "technologies": [
-    "Vue.js 3",
-    "Pinia",
-    "JavaScript",
-    "Vite",
-    "REST API Integration",
-    "State Management",
-    "Responsive Design",
-    "CSS"
-  ],
-  "status": "Completed",
-  "duration": "3 weeks",
-  "category": "Front-End Web Application",
-  "images": [],
-  "videos": [],
-  "link": "https://goodiesstore.netlify.app"
+  {
+    "id": "intrusion-detection",
+    "title": "Deep Learning-Based IDS for Hybrid SDN",
+    "subtitle": "Automated Intrusion Detection System preventing Alert Fatigue in next-gen networks",
+    "description": "An automated security system for Hybrid Software-Defined Networks (hSDN) that uses Deep Learning to reduce false alarms by 99.9% and mitigate DDoS attacks in real-time.",
+    "fullDescription": "This Honours thesis project tackles the critical issue of **Alert Fatigue** in Hybrid Software-Defined Networks (hSDN). Traditional security tools in these complex environments often flag legitimate traffic as malicious, generating thousands of false alarms that overwhelm security teams.\n\n### 🛡️ The Solution\nI designed and built an automated Intrusion Detection System (IDS) integrated with an **OpenDaylight** controller. The system uses a **Convolutional Neural Network (CNN)** to analyze network traffic behavior rather than relying on static signatures.\n\n### ⚙️ Key Engineering Decisions\n- **Baseline Testing:** First implemented a traditional signature-based IDS, which failed with a **99.69% False Positive Rate**, proving the need for an AI-driven approach.\n- **Live Stress Testing:** Validated the system in a **GNS3** testbed using **hping3** to generate novel, random DDoS attacks. This proved the model generalizes to unseen threats rather than just memorizing a dataset.\n- **Model Selection:** Compared CNN vs. LSTM architectures. Selected CNN because it was **7x faster to train** while maintaining equivalent accuracy—crucial for operational agility.\n- **Operational Logic:** Implemented a **20-second startup grace period** to filter unstable boot traffic, preventing false positives from pre-existing flows.\n\n### 📊 Impact & Results\n- **False Alarms:** Reduced from **13,643** (Baseline) to just **5** (CNN Model) — a **0.04% False Positive Rate**.\n- **Accuracy:** Achieved **99.98%** detection accuracy on live traffic.\n- **Automation:** Achieved fully automated detection-to-mitigation time of **60–90 seconds**.\n\nThis project provides a validated blueprint for securing transitional hybrid networks using intelligent automation.",
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "OpenDaylight",
+      "GNS3",
+      "Linux (Ubuntu)",
+      "hping3",
+      "sFlow",
+      "Cisco IOS XRv",
+      "Docker"
+    ],
+    "status": "Completed",
+    "duration": "Jan 2025 – Nov 2025",
+    "category": "Cybersecurity & AI",
+    "images": [
+      "assets/images/ids/final_three_way_comparison.png",
+      "assets/images/ids/architecture2.png",
+      "assets/images/ids/Tesbed screenshot.png",
+      "assets/images/ids/Attack.png",
+      "assets/images/ids/Attack detected.png",
+      "assets/images/ids/Block rule installed.png",
+      "assets/images/ids/cnn_training_history.png",
+      "assets/images/ids/cnn_confusion_matrix.png",
+      "assets/images/ids/System Workflow.png"
+      
+    ],
+    "videos": [],
+    "github": "https://github.com/Dimak12/DL-Based-IDS-for-HSDN"
+  },
+  
+  {
+    "id": "goodies-store",
+    "title": "Goodies Store",
+    "subtitle": "A responsive e-commerce storefront built with Vue.js 3",
+    "description": "A dynamic e-commerce web application featuring live product data, a shopping cart with state management, and a responsive design.",
+    "fullDescription": "Goodies Store is a modern e-commerce web application built as a Single Page Application (SPA) using Vue.js 3 and Vite. It demonstrates strong command of component-based architecture, state management, and API integration.\n\n**Key Features:**\n- **Product Catalog**: Products are dynamically fetched from a REST API (FakeStoreAPI) and displayed with loading states.\n- **Shopping Cart**: Powered by Pinia (Vue's state management library), the cart allows users to add/remove items, view totals, and persist cart state across pages.\n- **Routing**: Vue Router enables smooth navigation between Home, Products, Cart, About, and Contact pages.\n- **Responsive Design**: Built with CSS Grid and Flexbox to ensure a seamless experience across devices.\n- **Reusable Components**: Header and Footer components provide consistent layout and navigation.\n\nThis project highlights front-end engineering skills, including API integration, state management, and responsive UI design.",
+    "technologies": [
+      "Vue.js 3",
+      "Pinia",
+      "JavaScript",
+      "Vite",
+      "REST API Integration",
+      "State Management",
+      "Responsive Design",
+      "CSS"
+    ],
+    "status": "Completed",
+    "duration": "3 weeks",
+    "category": "Front-End Web Application",
+    "images": [],
+    "videos": [],
+    "link": "https://goodiesstore.netlify.app"
   },
 
   {
@@ -53,34 +90,6 @@
     "github": "https://github.com/Dimak12/DigitsRecognition/tree/main"
   },
 
-  {
-  "id": "intrusion-detection",
-  "title": "Deep Learning Based IDS",
-  "subtitle": "AI-driven cybersecurity solution for next-generation networks",
-  "description": "A research project developing a deep learning-based IDS for hybrid SDN environments, integrating AI with OpenDaylight for real-time threat detection and mitigation.",
-  "fullDescription": "This research project focuses on developing an advanced Intrusion Detection System (IDS) for hybrid Software-Defined Networks (SDN). The system leverages deep learning models (CNN, RNN, LSTM, GRU) to detect and mitigate cyber threats such as DDoS, DoS and probe attacks in real-time.\n\n**Key Features:**\n- **Hybrid SDN Testbed**: Built using Cisco IOS XRv, OpenDaylight, GNS3, and QEMU.\n- **Deep Learning Models**: CNN, RNN, LSTM, GRU architectures implemented in TensorFlow/Keras and PyTorch.\n- **Datasets**: InSDN and UNSW-NB15 datasets used for training and evaluation.\n- **Integration**: IDS integrated with OpenDaylight via northbound APIs to dynamically update flow rules and mitigate threats.\n- **Evaluation**: Performance measured using accuracy, F1-score, precision, recall, ROC/PR curves, and real-time attack simulations (Scapy, hping3, nmap).\n\nThis project demonstrates expertise in networking, cybersecurity, and AI, bridging the gap between SDN architectures and modern deep learning-based security solutions.",
-  "technologies": [
-    "Python",
-    "Deep Learning",
-    "Hybrid SDN",
-    "IDS",
-    "Cisco IOS XRv",
-    "OpenDaylight",
-    "GNS3",
-    "QEMU",
-    "Pandas",
-    "TensorFlow",
-    "Keras",
-    "PyTorch",
-    "NumPy",
-    "Scikit-learn"
-  ],
-  "status": "In Progress",
-  "duration": "Jan 2025 – Present",
-  "category": "Research & Development",
-  "images": [],
-  "videos": []
-  },
   {
   "id": "bus-monitoring",
   "title": "School Bus Monitoring System",
