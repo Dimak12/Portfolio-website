@@ -2,9 +2,9 @@
   {
     "id": "intrusion-detection",
     "title": "Deep Learning-Based IDS for Hybrid SDN",
-    "subtitle": "Automated Intrusion Detection System preventing Alert Fatigue in next-gen networks",
-    "description": "An automated security system for Hybrid Software-Defined Networks (hSDN) that uses Deep Learning to reduce false alarms by 99.9% and mitigate DDoS attacks in real-time.",
-    "fullDescription": "This Honours thesis project tackles the critical issue of **Alert Fatigue** in Hybrid Software-Defined Networks (hSDN). Traditional security tools in these complex environments often flag legitimate traffic as malicious, generating thousands of false alarms that overwhelm security teams.\n\n### 🛡️ The Solution\nI designed and built an automated Intrusion Detection System (IDS) integrated with an **OpenDaylight** controller. The system uses a **Convolutional Neural Network (CNN)** to analyze network traffic behavior rather than relying on static signatures.\n\n### ⚙️ Key Engineering Decisions\n- **Baseline Testing:** First implemented a traditional signature-based IDS, which failed with a **99.69% False Positive Rate**, proving the need for an AI-driven approach.\n- **Live Stress Testing:** Validated the system in a **GNS3** testbed using **hping3** to generate novel, random DDoS attacks. This proved the model generalizes to unseen threats rather than just memorizing a dataset.\n- **Model Selection:** Compared CNN vs. LSTM architectures. Selected CNN because it was **7x faster to train** while maintaining equivalent accuracy—crucial for operational agility.\n- **Operational Logic:** Implemented a **20-second startup grace period** to filter unstable boot traffic, preventing false positives from pre-existing flows.\n\n### 📊 Impact & Results\n- **False Alarms:** Reduced from **13,643** (Baseline) to just **5** (CNN Model) — a **0.04% False Positive Rate**.\n- **Accuracy:** Achieved **99.98%** detection accuracy on live traffic.\n- **Automation:** Achieved fully automated detection-to-mitigation time of **60–90 seconds**.\n\nThis project provides a validated blueprint for securing transitional hybrid networks using intelligent automation.",
+    "subtitle": "Automated intrusion detection that ends alert fatigue in next-generation networks",
+    "description": "An automated security system for hybrid software-defined networks that uses a CNN to cut false alarms by 99.9% and mitigate DDoS attacks in real time.",
+    "fullDescription": "This Honours thesis project tackles **alert fatigue** in Hybrid Software-Defined Networks (hSDN). Traditional security tools in these environments often flag legitimate traffic as malicious, generating thousands of false alarms that overwhelm security teams.\n\n### The solution\nI designed and built an automated Intrusion Detection System (IDS) integrated with an **OpenDaylight** controller. The system uses a **Convolutional Neural Network (CNN)** to analyse network traffic behaviour rather than relying on static signatures.\n\n### Key engineering decisions\n- **Baseline testing:** First implemented a traditional signature-based IDS, which failed with a **99.69% false positive rate**, establishing the need for a learned approach.\n- **Live stress testing:** Validated the system in a **GNS3** testbed using **hping3** to generate novel, random DDoS attacks, showing that the model generalises to unseen threats rather than memorising a dataset.\n- **Model selection:** Compared CNN and LSTM architectures. Selected the CNN because it was **7x faster to train** at equivalent accuracy, which matters for operational agility.\n- **Operational logic:** Implemented a **20-second startup grace period** to filter unstable boot traffic and avoid false positives from pre-existing flows.\n\n### Results\n- **False alarms:** Reduced from **13,643** (baseline) to **5** (CNN model), a **0.04% false positive rate**.\n- **Accuracy:** **99.98%** detection accuracy on live traffic.\n- **Automation:** Fully automated detection-to-mitigation in **60 to 90 seconds**.\n\nThe project provides a validated blueprint for securing transitional hybrid networks with intelligent automation.",
     "technologies": [
       "Python",
       "TensorFlow",
@@ -20,28 +20,28 @@
     "status": "Completed",
     "duration": "Jan 2025 – Nov 2025",
     "category": "Cybersecurity & AI",
+    "cover": "assets/images/ids/architecture2.png",
     "images": [
-      "assets/images/ids/final_three_way_comparison.png",
-      "assets/images/ids/architecture2.png",
-      "assets/images/ids/Tesbed screenshot.png",
-      "assets/images/ids/Attack.png",
-      "assets/images/ids/Attack detected.png",
-      "assets/images/ids/Block rule installed.png",
-      "assets/images/ids/cnn_training_history.png",
-      "assets/images/ids/cnn_confusion_matrix.png",
-      "assets/images/ids/System Workflow.png"
-      
+      { "src": "assets/images/ids/architecture2.png", "caption": "System architecture" },
+      { "src": "assets/images/ids/System Workflow.png", "caption": "End-to-end detection and mitigation workflow" },
+      { "src": "assets/images/ids/Tesbed screenshot.png", "caption": "GNS3 testbed topology" },
+      { "src": "assets/images/ids/Attack.png", "caption": "DDoS attack generated with hping3" },
+      { "src": "assets/images/ids/Attack detected.png", "caption": "Attack detected by the CNN model" },
+      { "src": "assets/images/ids/Block rule installed.png", "caption": "Mitigation: block rule installed through OpenDaylight" },
+      { "src": "assets/images/ids/cnn_training_history.png", "caption": "CNN training history" },
+      { "src": "assets/images/ids/cnn_confusion_matrix.png", "caption": "CNN confusion matrix" },
+      { "src": "assets/images/ids/final_three_way_comparison.png", "caption": "Three-way comparison of detection approaches" }
     ],
     "videos": [],
     "github": "https://github.com/Dimak12/DL-Based-IDS-for-HSDN"
   },
-  
+
   {
     "id": "goodies-store",
     "title": "Goodies Store",
     "subtitle": "A responsive e-commerce storefront built with Vue.js 3",
-    "description": "A dynamic e-commerce web application featuring live product data, a shopping cart with state management, and a responsive design.",
-    "fullDescription": "Goodies Store is a modern e-commerce web application built as a Single Page Application (SPA) using Vue.js 3 and Vite. It demonstrates strong command of component-based architecture, state management, and API integration.\n\n**Key Features:**\n- **Product Catalog**: Products are dynamically fetched from a REST API (FakeStoreAPI) and displayed with loading states.\n- **Shopping Cart**: Powered by Pinia (Vue's state management library), the cart allows users to add/remove items, view totals, and persist cart state across pages.\n- **Routing**: Vue Router enables smooth navigation between Home, Products, Cart, About, and Contact pages.\n- **Responsive Design**: Built with CSS Grid and Flexbox to ensure a seamless experience across devices.\n- **Reusable Components**: Header and Footer components provide consistent layout and navigation.\n\nThis project highlights front-end engineering skills, including API integration, state management, and responsive UI design.",
+    "description": "A single-page e-commerce application with live product data, a state-managed shopping cart and a responsive layout.",
+    "fullDescription": "Goodies Store is an e-commerce web application built as a Single Page Application (SPA) with Vue.js 3 and Vite. It demonstrates component-based architecture, state management and API integration.\n\n### Key features\n- **Product catalogue:** Products are fetched from a REST API (FakeStoreAPI) and displayed with loading states.\n- **Shopping cart:** Powered by Pinia, the cart supports adding and removing items, running totals and state that persists across pages.\n- **Routing:** Vue Router handles navigation between Home, Products, Cart, About and Contact.\n- **Responsive design:** Built with CSS Grid and Flexbox for a consistent experience across devices.\n- **Reusable components:** Shared header and footer components keep layout and navigation consistent.",
     "technologies": [
       "Vue.js 3",
       "Pinia",
@@ -54,8 +54,11 @@
     ],
     "status": "Completed",
     "duration": "3 weeks",
-    "category": "Front-End Web Application",
-    "images": [],
+    "category": "Web Application",
+    "cover": "assets/images/goodies-store/goodies_store.png",
+    "images": [
+      { "src": "assets/images/goodies-store/goodies_store.png", "caption": "Goodies Store home page" }
+    ],
     "videos": [],
     "link": "https://goodiesstore.netlify.app"
   },
@@ -63,9 +66,9 @@
   {
     "id": "digit-recognition",
     "title": "Digit Recognition (ANN)",
-    "subtitle": "Artificial Neural Network trained on MNIST and custom handwritten digits",
-    "description": "Built an ANN in TensorFlow/Keras to classify handwritten digits. Achieved ~97.6% accuracy on MNIST and ~60% on custom handwritten data.",
-    "fullDescription": "This project involved developing an **Artificial Neural Network (ANN)** to recognize handwritten digits (0–9). The model was implemented in **TensorFlow/Keras** and trained on the **MNIST dataset** (60,000 training images, 10,000 test images).\n\n### 🧩 Part 1: Training on MNIST\n- Preprocessed and normalized 28×28 grayscale digit images.\n- Flattened images into 784-feature vectors.\n- Built a 4-layer ANN with ReLU, Tanh, Sigmoid, and Softmax activations.\n- Achieved **~97.6% accuracy** on the MNIST test set.\n\n### ✍️ Part 2: Testing on Custom Data\n- Collected and preprocessed own handwritten digit images (resized, grayscale, normalized).\n- Evaluated the trained ANN on this dataset.\n- Achieved **~60% accuracy** — highlighting the challenges of domain shift (real-world handwriting vs. MNIST).\n\n### 📊 Key Learnings\n- Importance of **data preprocessing** (normalization, resizing).\n- How **activation functions, epochs, and learning rate** affect ANN performance.\n- Realized the need for **data augmentation** and more diverse training data to improve generalization.\n\n### 🔮 Future Improvements\n- Use a **Convolutional Neural Network (CNN)** for better feature extraction.\n- Apply **data augmentation** (rotation, scaling, shifting) to improve generalization.\n- Collect a larger and more diverse custom dataset.",
+    "subtitle": "A neural network trained on MNIST and tested on custom handwritten digits",
+    "description": "An ANN in TensorFlow/Keras for handwritten digit classification: about 97.6% accuracy on MNIST and 60% on my own handwriting, a direct look at domain shift.",
+    "fullDescription": "This project develops an **Artificial Neural Network (ANN)** to recognise handwritten digits (0 to 9). The model was implemented in **TensorFlow/Keras** and trained on the **MNIST dataset** (60,000 training images, 10,000 test images).\n\n### Part 1: Training on MNIST\n- Preprocessed and normalised 28x28 grayscale digit images.\n- Flattened images into 784-feature vectors.\n- Built a 4-layer ANN with ReLU, Tanh, Sigmoid and Softmax activations.\n- Achieved **about 97.6% accuracy** on the MNIST test set.\n\n### Part 2: Testing on custom data\n- Collected and preprocessed my own handwritten digit images (resized, grayscale, normalised).\n- Evaluated the trained ANN on this dataset.\n- Achieved **about 60% accuracy**, highlighting the effect of domain shift between real handwriting and MNIST.\n\n### Key learnings\n- The importance of **data preprocessing** (normalisation, resizing).\n- How **activation functions, epochs and learning rate** affect performance.\n- The need for **data augmentation** and more diverse training data to generalise.\n\n### Future improvements\n- Use a **Convolutional Neural Network (CNN)** for better feature extraction.\n- Apply **data augmentation** (rotation, scaling, shifting).\n- Collect a larger and more diverse custom dataset.",
     "technologies": [
       "Python",
       "TensorFlow",
@@ -79,98 +82,114 @@
     "duration": "2 weeks",
     "category": "AI & Machine Learning",
     "images": [
-      "assets/images/digit-recognition/mnist-samples.png",
-      "assets/images/digit-recognition/mnist-confusion.png",
-      "assets/images/digit-recognition/training-accuracy.png",
-      "assets/images/digit-recognition/custom-samples.png",
-      "assets/images/digit-recognition/custom-confusion.png",
-      "assets/images/digit-recognition/accuracy.png"
+      { "src": "assets/images/digit-recognition/mnist-samples.png", "caption": "Sample MNIST digits" },
+      { "src": "assets/images/digit-recognition/training-accuracy.png", "caption": "Training and validation accuracy" },
+      { "src": "assets/images/digit-recognition/mnist-confusion.png", "caption": "Confusion matrix on the MNIST test set" },
+      { "src": "assets/images/digit-recognition/custom-samples.png", "caption": "Custom handwritten digit samples" },
+      { "src": "assets/images/digit-recognition/custom-confusion.png", "caption": "Confusion matrix on custom handwriting" },
+      { "src": "assets/images/digit-recognition/accuracy.png", "caption": "Accuracy on MNIST versus custom data" }
     ],
     "videos": [],
     "github": "https://github.com/Dimak12/DigitsRecognition/tree/main"
   },
 
   {
-  "id": "bus-monitoring",
-  "title": "School Bus Monitoring System",
-  "subtitle": "IoT-based real-time student safety and attendance tracking solution",
-  "description": "An IoT-powered school bus monitoring system using RFID, ESP32, GPS, Azure cloud, and Twilio SMS alerts to ensure student safety and efficient transport management.",
-  "fullDescription": "This project develops an improved monitoring system using RFID, ESP32 microcontroller, GPS, and Microsoft Azure cloud technologies to enhance efficiency and child safety during school bus transportation.\n\nThe system consists of a bus unit that detects student boarding/disembarking via RFID tags. This data is collected by an ESP32 microcontroller and transmitted to a Microsoft Azure server. The server hosts a database and web application for the school admin to view and manage the system. Real-time SMS notifications are sent to parents via Twilio when students board or leave the bus.\n\nKey features include:\n- RFID-based student authentication and attendance tracking\n- ESP32 microcontroller for data acquisition and communication\n- GPS module for real-time bus location tracking\n- Microsoft Azure-hosted database and web application for admin management\n- Twilio SMS integration for instant parent notifications\n\nThe system was prototyped, tested, and shown to improve student safety, optimize bus operations, and simplify attendance management.",
-  "technologies": ["RFID","ESP32","GPS","Microsoft Azure","Twilio SMS","Database","PHP","IoT","Cloud Computing"],
-  "status": "Completed",
-  "duration": "6 months",
-  "category": "IoT & Safety",
-  "images": ["assets/images/bus_monitoring/Sys Design.png","assets/images/bus_monitoring/restricted access.png", "assets/images/bus_monitoring/Management system.png", "assets/images/bus_monitoring/GPS tracking.png", "assets/images/bus_monitoring/SMS alert.jpg", "assets/images/bus_monitoring/Student logs.png"],
-  "videos": [],
-  "github": "https://github.com/Dimak12/schoolBusMonitoring" 
+    "id": "bus-monitoring",
+    "title": "School Bus Monitoring System",
+    "subtitle": "IoT-based real-time student safety and attendance tracking",
+    "description": "An IoT school bus monitoring system using RFID, ESP32, GPS, Azure and Twilio SMS alerts to improve student safety and transport management.",
+    "fullDescription": "This project develops a monitoring system using RFID, an ESP32 microcontroller, GPS and Microsoft Azure to improve efficiency and child safety during school bus transport.\n\nA bus unit detects students boarding and disembarking via RFID tags. The ESP32 collects this data and sends it to a Microsoft Azure server, which hosts a database and a web application for school administrators. Parents receive real-time SMS notifications via Twilio when their child boards or leaves the bus.\n\n### Key features\n- RFID-based student authentication and attendance tracking\n- ESP32 microcontroller for data acquisition and communication\n- GPS module for real-time bus location tracking\n- Azure-hosted database and web application for administration\n- Twilio SMS integration for instant parent notifications\n\nThe system was prototyped and tested, and shown to improve student safety, streamline bus operations and simplify attendance management.",
+    "technologies": ["RFID", "ESP32", "GPS", "Microsoft Azure", "Twilio SMS", "Database", "PHP", "IoT", "Cloud Computing"],
+    "status": "Completed",
+    "duration": "6 months",
+    "category": "IoT & Safety",
+    "images": [
+      { "src": "assets/images/bus_monitoring/Sys Design.png", "caption": "System design" },
+      { "src": "assets/images/bus_monitoring/restricted access.png", "caption": "Restricted-access login" },
+      { "src": "assets/images/bus_monitoring/Management system.png", "caption": "Administrator management system" },
+      { "src": "assets/images/bus_monitoring/GPS tracking.png", "caption": "Real-time GPS tracking" },
+      { "src": "assets/images/bus_monitoring/SMS alert.jpg", "caption": "SMS alert received by a parent" },
+      { "src": "assets/images/bus_monitoring/Student logs.png", "caption": "Student boarding logs" }
+    ],
+    "videos": [],
+    "github": "https://github.com/Dimak12/schoolBusMonitoring"
   },
-  
+
   {
-  "id": "solar-controller",
-  "title": "Solar Charge Controller",
-  "subtitle": "Arduino-based PWM solar charge controller for 12V lead-acid batteries",
-  "description": "A microcontroller-driven solar charge controller using PWM to safely charge a 12V lead-acid battery, with real-time monitoring and automatic overcharge protection.",
-  "fullDescription": "This project involves the design, simulation, and realization of a solar charge controller for charging a 12V lead-acid car battery. The system is based on the PWM (Pulse Width Modulation) method for efficient charging, controlled by an Arduino Uno microcontroller.\n\nThe Arduino measures the voltage and current from the solar panel and the battery, generating a PWM signal to regulate charging. Charging is automatically stopped when the battery reaches 14.4V (the recommended full charge voltage) and resumed when the battery voltage drops. This ensures safe charging and prevents overcharging.\n\nThe system was first simulated in Tinkercad and then implemented as a physical prototype. An LCD display provides real-time feedback on battery voltage, charging current, and charging status. The prototype successfully charged the battery to 14.4V and maintained stable operation under varying conditions.\n\nKey features:\n- PWM-based charging control\n- Automatic overcharge prevention at 14.4V\n- Real-time monitoring of voltage and current\n- LCD display for user feedback\n- Simulation in Tinkercad and physical prototype testing\n\nThis project demonstrates the integration of renewable energy systems with embedded microcontroller programming to create a cost-effective and efficient solar charging solution.",
-  "technologies": [
-    "Arduino Uno",
-    "C/C++",
-    "PWM Control",
-    "Tinkercad Simulation",
-    "LCD Display",
-    "Renewable Energy",
-    "Embedded Systems",
-    "Battery Management"
-  ],
-  "status": "Completed",
-  "duration": "3 months",
-  "category": "Embedded Systems",
-  "images": ["assets/images/Solar charge controller/Final circuit design.png", "assets/images/Solar charge controller/Physical solar charge.png"],
-  "videos": [],
-  "github": "https://github.com/Dimak12/Solar-charge-Controller"
+    "id": "solar-controller",
+    "title": "Solar Charge Controller",
+    "subtitle": "Arduino-based PWM solar charge controller for 12V lead-acid batteries",
+    "description": "A microcontroller-driven PWM charge controller that safely charges a 12V lead-acid battery, with real-time monitoring and automatic overcharge protection.",
+    "fullDescription": "This project covers the design, simulation and build of a solar charge controller for a 12V lead-acid car battery. Charging uses Pulse Width Modulation (PWM), controlled by an Arduino Uno.\n\nThe Arduino measures voltage and current from the solar panel and the battery and generates a PWM signal to regulate charging. Charging stops automatically when the battery reaches 14.4V, the recommended full-charge voltage, and resumes when the voltage drops, preventing overcharging.\n\nThe circuit was first simulated in Tinkercad and then built as a physical prototype. An LCD shows battery voltage, charging current and charging status in real time. The prototype charged the battery to 14.4V and remained stable under varying conditions.\n\n### Key features\n- PWM-based charging control\n- Automatic overcharge prevention at 14.4V\n- Real-time voltage and current monitoring\n- LCD display for user feedback\n- Tinkercad simulation and physical prototype testing",
+    "technologies": [
+      "Arduino Uno",
+      "C/C++",
+      "PWM Control",
+      "Tinkercad Simulation",
+      "LCD Display",
+      "Renewable Energy",
+      "Embedded Systems",
+      "Battery Management"
+    ],
+    "status": "Completed",
+    "duration": "3 months",
+    "category": "Embedded Systems",
+    "images": [
+      { "src": "assets/images/Solar charge controller/Final circuit design.png", "caption": "Final circuit design in Tinkercad" },
+      { "src": "assets/images/Solar charge controller/Physical solar charge.png", "caption": "Physical prototype" }
+    ],
+    "videos": [],
+    "github": "https://github.com/Dimak12/Solar-charge-Controller"
   },
+
   {
-  "id": "serviceme",
-  "title": "ServiceMe Platform",
-  "subtitle": "On-demand home services booking platform",
-  "description": "A web application for booking house cleaning and gardening services, featuring user accounts, service provider profiles, booking management, and secure payments.",
-  "fullDescription": "ServiceMe is a web application designed to connect homeowners with trusted service providers for house cleaning and gardening services. The platform provides a seamless experience for both customers and service providers.\n\nKey features include:\n- **User Accounts**: Customers and service providers can sign up and log in. Service providers can create detailed profiles with their services, photos, and descriptions.\n- **Service Booking**: Customers can book house cleaning or gardening services by specifying details such as number of rooms, garden size, date, time, and location.\n- **Agent Selection**: After entering booking details, customers can browse available service providers, view their profiles, ratings, and specialties, and select the one they prefer.\n- **Billing & Payments**: A secure billing page allows customers to enter payment details and confirm bookings. Successful payments redirect to confirmation pages.\n- **Notifications & Feedback**: Customers receive booking confirmations, and service providers can manage their schedules. Feedback and ratings help maintain service quality.\n\nThe system was tested extensively, including sign-up, login, booking, agent selection, and billing workflows. All tests passed successfully, confirming that the application is ready for real-world use.\n\nThis project demonstrates the integration of web development, database management, and secure payment systems to create a practical and user-friendly service platform.",
-  "technologies": [
-    "Java",
-    "JavaScript",
-    "MySQL Database",
-    "HTML",
-    "CSS",
-    "User Authentication"
-  ],
-  "status": "Completed",
-  "duration": "5 months",
-  "category": "Web Application",
-  "images": [],
-  "videos": ["assets/videos/Service Me updated 2.mp4"],
-  "github": "https://github.com/Dimak12/ServiceMe"
+    "id": "serviceme",
+    "title": "ServiceMe Platform",
+    "subtitle": "On-demand home services booking platform",
+    "description": "A web application for booking cleaning and gardening services, with user accounts, provider profiles, booking management and payments.",
+    "fullDescription": "ServiceMe connects homeowners with service providers for house cleaning and gardening, with flows designed for both customers and providers.\n\n### Key features\n- **User accounts:** Customers and providers sign up and log in. Providers maintain profiles with their services, photos and descriptions.\n- **Service booking:** Customers specify details such as number of rooms, garden size, date, time and location.\n- **Provider selection:** Customers browse available providers, compare profiles, ratings and specialties, and choose one.\n- **Billing and payments:** A billing page captures payment details and confirms the booking.\n- **Notifications and feedback:** Customers receive confirmations, providers manage their schedules, and ratings help maintain quality.\n\nSign-up, login, booking, provider selection and billing workflows were all tested end to end and passed.",
+    "technologies": [
+      "Java",
+      "JavaScript",
+      "MySQL Database",
+      "HTML",
+      "CSS",
+      "User Authentication"
+    ],
+    "status": "Completed",
+    "duration": "5 months",
+    "category": "Web Application",
+    "images": [],
+    "videos": [
+      { "src": "assets/videos/Service Me updated 2.mp4", "caption": "ServiceMe walkthrough" }
+    ],
+    "github": "https://github.com/Dimak12/ServiceMe"
   },
+
   {
-  "id": "connect-social",
-  "title": "Connect Social Platform",
-  "subtitle": "A Twitter-inspired social networking platform with real-time interactions",
-  "description": "A social networking platform where users can sign up, create profiles, follow others, and share posts in a real-time feed.",
-  "fullDescription": "Connect is a modern social networking platform designed to replicate and enhance the core features of Twitter. It allows users to create accounts, manage profiles, follow/unfollow others, and share posts in a real-time feed.\n\n**Key Features:**\n- **User Authentication & Validation**: Secure login and signup with validation for usernames, emails, and passwords. Prevents duplicate accounts.\n- **Profile Management**: Users can upload profile pictures, edit their bio, and update personal details.\n- **Posting System**: Users can create posts that appear instantly in the feed with timestamps, usernames, and avatars.\n- **Following System**: Users can follow/unfollow others. The feed dynamically updates to show posts only from followed users.\n- **Search Functionality**: Search for users by name or username, view their profile info, and follow/unfollow directly from search results.\n- **Responsive Feed**: Posts are displayed in chronological order with a clean, Twitter-like UI.\n\nThe project was implemented using JSP, Servlets, and MySQL for backend logic and persistence, with AJAX and jQuery for dynamic interactions. It demonstrates full-stack development skills, combining frontend design, backend logic, and database integration.",
-  "technologies": [
-    "Java (JSP/Servlets)",
-    "MySQL",
-    "JDBC",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "jQuery",
-    "AJAX",
-    "User Authentication"
-  ],
-  "status": "Completed",
-  "duration": "6 months",
-  "category": "Social Platform",
-  "images": [],
-  "videos": ["assets/videos/Connect_presentation.mp4"],
-  "github": "https://github.com/Dimak12/Connect"
+    "id": "connect-social",
+    "title": "Connect Social Platform",
+    "subtitle": "A Twitter-inspired social network with real-time interactions",
+    "description": "A social networking platform where users create profiles, follow others and share posts in a live feed.",
+    "fullDescription": "Connect is a social networking platform modelled on the core features of Twitter. Users create accounts, manage profiles, follow and unfollow others, and share posts in a live feed.\n\n### Key features\n- **Authentication and validation:** Secure sign-up and login with validation for usernames, emails and passwords, and protection against duplicate accounts.\n- **Profile management:** Users upload profile pictures and edit their bio and personal details.\n- **Posting:** Posts appear instantly in the feed with timestamps, usernames and avatars.\n- **Following:** The feed updates to show posts only from followed users.\n- **Search:** Find users by name or username and follow them directly from the results.\n\nThe platform uses JSP, Servlets and MySQL for backend logic and persistence, with AJAX and jQuery for dynamic interactions.",
+    "technologies": [
+      "Java (JSP/Servlets)",
+      "MySQL",
+      "JDBC",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "jQuery",
+      "AJAX",
+      "User Authentication"
+    ],
+    "status": "Completed",
+    "duration": "6 months",
+    "category": "Social Platform",
+    "images": [],
+    "videos": [
+      { "src": "assets/videos/Connect_presentation.mp4", "caption": "Connect platform demo" }
+    ],
+    "github": "https://github.com/Dimak12/Connect"
   }
 ]

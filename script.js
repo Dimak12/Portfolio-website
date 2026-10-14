@@ -1,279 +1,328 @@
-// ===============================
-// Load projects on index.html
-// ===============================
-if (document.getElementById("projects-grid")) {
+// =====================================================
+// Shared helpers
+// =====================================================
+const src = (path) => encodeURI(path);
+
+// Media entries can be plain strings or { src, caption } objects
+function normaliseMedia(item) {
+  if (typeof item === "string") {
+    const name = item.split("/").pop().replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
+    return { src: item, caption: name.charAt(0).toUpperCase() + name.slice(1) };
+  }
+  return item;
+}
+
+// Minimal Markdown fallback (headings, lists, bold) in case the CDN fails to load
+function basicMarkdown(md) {
+  const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return md
+    .split(/\n\n+/)
+    .map((block) => {
+      const lines = block.split("\n");
+      let html = "";
+      let list = [];
+      const flush = () => {
+        if (list.length) html += `<ul>${list.map((l) => `<li>${inline(l)}</li>`).join("")}</ul>`;
+        list = [];
+      };
+      lines.forEach((line) => {
+        if (line.startsWith("- ")) list.push(line.slice(2));
+        else {
+          flush();
+          const h = line.match(/^(#{1,6})\s+(.*)/);
+          html += h ? `<h${h[1].length}>${inline(h[2])}</h${h[1].length}>` : `<p>${inline(line)}</p>`;
+        }
+      });
+      flush();
+      return html;
+    })
+    .join("");
+}
+
+function coverFor(p) {
+  if (p.cover) return p.cover;
+  if (p.images && p.images.length) return normaliseMedia(p.images[0]).src;
+  return null;
+}
+
+// Footer year
+document.querySelectorAll(".year").forEach((el) => (el.textContent = new Date().getFullYear()));
+
+// =====================================================
+// Mobile navigation
+// =====================================================
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", open);
+  });
+  navLinks.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    })
+  );
+}
+
+// =====================================================
+// Skills (index.html)
+// =====================================================
+const skillsData = [
+  {
+    title: "Artificial Intelligence",
+    skills: [
+      "Deep learning (MLP, CNN, LSTM)",
+      "Spatio-temporal graph neural networks",
+      "Natural language processing",
+      "Knowledge representation & reasoning",
+      "Explainable AI",
+      "AutoML (BOHB, DEHB)",
+      "Bayesian networks",
+      "PyTorch",
+      "TensorFlow / Keras",
+      "PyTorch Geometric, TSL",
+    ],
+  },
+  {
+    title: "Software & Cloud",
+    skills: [
+      "Python",
+      "Java",
+      "JavaScript",
+      "Vue.js",
+      "C / C++",
+      "PHP",
+      "REST APIs",
+      "MySQL",
+      "Microsoft Azure",
+    ],
+  },
+  {
+    title: "Networking & Security",
+    skills: [
+      "Software-defined networking",
+      "OpenDaylight",
+      "Cisco IOS XRv",
+      "GNS3 / QEMU",
+      "Intrusion detection systems",
+      "CCNA 1 & 2",
+    ],
+  },
+  {
+    title: "Embedded & IoT",
+    skills: ["Arduino", "ESP32", "RFID & GPS", "Azure IoT", "Twilio"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git / GitHub", "Linux", "Docker", "Jupyter", "LaTeX", "MATLAB"],
+  },
+];
+
+const skillsGrid = document.getElementById("skills-grid");
+if (skillsGrid) {
+  skillsGrid.innerHTML = skillsData
+    .map(
+      (group) => `
+      <div class="skill-group">
+        <h3>${group.title}</h3>
+        <ul>${group.skills.map((s) => `<li>${s}</li>`).join("")}</ul>
+      </div>`
+    )
+    .join("");
+}
+
+// =====================================================
+// Project cards (index.html)
+// =====================================================
+const projectsGrid = document.getElementById("projects-grid");
+if (projectsGrid) {
   fetch("projects.json")
     .then((res) => res.json())
     .then((projects) => {
-      const grid = document.getElementById("projects-grid");
-      projects.forEach((p) => {
-        const card = document.createElement("div");
-        card.className = "project-card";
+      projects.forEach((p, i) => {
+        const cover = coverFor(p);
+        const maxTags = 4;
+        const tags = p.technologies
+          .slice(0, maxTags)
+          .map((t) => `<span class="tag">${t}</span>`)
+          .join("");
+        const extra =
+          p.technologies.length > maxTags
+            ? `<span class="tag tag-muted">+${p.technologies.length - maxTags}</span>`
+            : "";
 
-        // Limit description to 3 lines (CSS handles truncation)
-        const description = `
-          <div class="project-header">
-            <div class="project-title">${p.title}</div>
-            <div class="project-description">${p.description}</div>
-            <a class="read-more">Read more →</a>
+        const card = document.createElement("a");
+        card.href = `project.html?id=${p.id}`;
+        card.className = "project-card" + (i === 0 ? " featured" : "");
+        card.innerHTML = `
+          <div class="card-media">
+            ${
+              cover
+                ? `<img src="${src(cover)}" alt="" loading="lazy" />`
+                : `<div class="card-placeholder"><span>${p.category}</span></div>`
+            }
           </div>
-        `;
-
-        // Limit tags to 5, then add "+X more"
-        const maxTags = 5;
-        let tagsHTML = "";
-        p.technologies.forEach((t, i) => {
-          if (i < maxTags) {
-            tagsHTML += `<span class="tech-tag">${t}</span>`;
-          }
-        });
-        if (p.technologies.length > maxTags) {
-          tagsHTML += `<span class="tech-tag more">+${p.technologies.length - maxTags} more</span>`;
-        }
-
-        const techSection = `<div class="project-tech">${tagsHTML}</div>`;
-
-        card.innerHTML = description + techSection;
-
-        // Click → go to project details page
-        card.addEventListener("click", () => {
-          window.location.href = `project.html?id=${p.id}`;
-        });
-
-        grid.appendChild(card);
+          <div class="card-body">
+            <p class="card-meta">${p.category}${p.duration ? ` &middot; ${p.duration}` : ""}</p>
+            <h3 class="card-title">${p.title}</h3>
+            <p class="card-desc">${p.description}</p>
+            <div class="tag-list">${tags}${extra}</div>
+            <span class="card-link">Read case study <i class="fas fa-arrow-right"></i></span>
+          </div>`;
+        projectsGrid.appendChild(card);
       });
     })
     .catch((err) => console.error("Error loading projects:", err));
 }
 
-// ===============================
-// Load project details on project.html
-// ===============================
-if (window.location.pathname.includes("project.html")) {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+// =====================================================
+// Project detail (project.html)
+// =====================================================
+if (document.getElementById("project-title")) {
+  const id = new URLSearchParams(window.location.search).get("id");
 
   fetch("projects.json")
     .then((res) => res.json())
     .then((projects) => {
-      const project = projects.find((p) => p.id === id);
-      if (project) {
-        // Title & subtitle
-        document.getElementById("project-title").textContent = project.title;
-        document.getElementById("project-subtitle").textContent =
-          project.subtitle;
+      const index = projects.findIndex((p) => p.id === id);
+      const project = projects[index];
 
-        // Meta info
-        document.getElementById("project-category").textContent =
-          "Category: " + project.category;
-
-        // Full description
-        const descContainer = document.getElementById("project-description");
-        descContainer.innerHTML = marked.parse(project.fullDescription);
-
-        // Add live demo link if available
-        if (project.link) {
-          const linkEl = document.createElement("a");
-          linkEl.href = project.link;
-          linkEl.target = "_blank";
-          linkEl.className = "project-link";
-          linkEl.textContent = "🔗 Click here to visit the website";
-          descContainer.appendChild(linkEl);
-        }
-
-        // Add GitHub repo link if available
-        if (project.github) {
-          const githubEl = document.createElement("a");
-          githubEl.href = project.github;
-          githubEl.target = "_blank";
-          githubEl.className = "project-link";
-          githubEl.textContent = "💻 View Source Code on GitHub";
-          descContainer.appendChild(githubEl);
-        }
-
-        // Technologies
-        document.getElementById("project-technologies").innerHTML =
-          project.technologies
-            .map((t) => `<span class="tech-tag">${t}</span>`)
-            .join("");
-
-        // Media (images & videos)
-        const mediaContainer = document.getElementById("project-media");
-
-        if (project.images && project.images.length > 0) {
-          project.images.forEach((img) => {
-            const imageEl = document.createElement("img");
-            imageEl.src = img;
-            imageEl.className = "project-image";
-            imageEl.style.maxWidth = "100%";
-            imageEl.style.marginBottom = "15px";
-            mediaContainer.appendChild(imageEl);
-          });
-        }
-
-        if (project.videos && project.videos.length > 0) {
-          project.videos.forEach((vid) => {
-            const videoEl = document.createElement("video");
-            videoEl.src = vid;
-            videoEl.controls = true;
-            videoEl.style.maxWidth = "100%";
-            videoEl.style.marginBottom = "15px";
-            mediaContainer.appendChild(videoEl);
-          });
-        }
-      } else {
-        document.querySelector(".project-detail .container").innerHTML =
-          "<p>❌ Project not found.</p>";
+      if (!project) {
+        document.querySelector(".project-page .container").innerHTML =
+          '<p class="not-found">Project not found. <a href="index.html#projects">Back to projects</a></p>';
+        return;
       }
+
+      document.title = `${project.title} | Plandi Makali`;
+      document.getElementById("project-category").textContent = project.category;
+      document.getElementById("project-title").textContent = project.title;
+      document.getElementById("project-subtitle").textContent = project.subtitle;
+
+      // Key facts
+      const facts = [
+        ["Duration", project.duration],
+        ["Status", project.status],
+      ].filter(([, v]) => v);
+      document.getElementById("project-facts").innerHTML = facts
+        .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
+        .join("");
+
+      // Action buttons
+      const actions = [];
+      if (project.github)
+        actions.push(
+          `<a class="btn btn-primary" href="${project.github}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source code</a>`
+        );
+      if (project.link)
+        actions.push(
+          `<a class="btn btn-ghost" href="${project.link}" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> Live site</a>`
+        );
+      document.getElementById("project-actions").innerHTML = actions.join("");
+
+      // Description
+      document.getElementById("project-description").innerHTML =
+        typeof marked !== "undefined" ? marked.parse(project.fullDescription) : basicMarkdown(project.fullDescription);
+
+      // Technologies
+      document.getElementById("project-technologies").innerHTML = project.technologies
+        .map((t) => `<span class="tag">${t}</span>`)
+        .join("");
+
+      // Videos
+      const videos = (project.videos || []).map(normaliseMedia);
+      if (videos.length) {
+        document.getElementById("video-section").hidden = false;
+        document.getElementById("project-videos").innerHTML = videos
+          .map(
+            (v) => `
+            <figure class="video-frame">
+              <div class="video-ratio"><video src="${src(v.src)}" controls preload="metadata"></video></div>
+              <figcaption>${v.caption}</figcaption>
+            </figure>`
+          )
+          .join("");
+      }
+
+      // Image gallery
+      const images = (project.images || []).map(normaliseMedia);
+      if (images.length) {
+        document.getElementById("gallery-section").hidden = false;
+        const gallery = document.getElementById("project-gallery");
+        gallery.innerHTML = images
+          .map(
+            (img, i) => `
+            <figure class="figure">
+              <button class="figure-frame" data-index="${i}" aria-label="Enlarge figure ${i + 1}">
+                <img src="${src(img.src)}" alt="${img.caption}" loading="lazy" />
+              </button>
+              <figcaption><span>Figure ${i + 1}.</span> ${img.caption}</figcaption>
+            </figure>`
+          )
+          .join("");
+        setupLightbox(images);
+      }
+
+      // Previous / next project
+      const prev = projects[(index - 1 + projects.length) % projects.length];
+      const next = projects[(index + 1) % projects.length];
+      document.getElementById("project-pager").innerHTML = `
+        <a href="project.html?id=${prev.id}" class="pager-link">
+          <span class="pager-label"><i class="fas fa-arrow-left"></i> Previous</span>
+          <span class="pager-title">${prev.title}</span>
+        </a>
+        <a href="project.html?id=${next.id}" class="pager-link next">
+          <span class="pager-label">Next <i class="fas fa-arrow-right"></i></span>
+          <span class="pager-title">${next.title}</span>
+        </a>`;
     })
     .catch((err) => console.error("Error loading project details:", err));
 }
 
-// ===============================
-// Skills Modal System
-// ===============================
-const skillsData = {
-  // CATEGORY 1: Consolidated
-  dev: {
-    title: "Software Development & Cloud",
-    skills: [
-      "Python",
-      "Java",
-      "Vue.JS",
-      "JavaScript (ES6+)",
-      "C/C++",
-      "PHP",
-      "REST APIs",
-      "Full-Stack Development",
-      "MySQL",
-      "Microsoft Azure",
-      "API-driven Data Management",
-    ],
-  },
-  // CATEGORY 2: No Change
-  ai: {
-    title: "Artificial Intelligence & Cybersecurity",
-    skills: [
-      "Machine Learning",
-      "Deep Learning",
-      "EDA",
-      "Intrusion Detection Systems",
-      "Cybersecurity Tools",
-    ],
-  },
-  // CATEGORY 3: Consolidated
-  networking: {
-    title: "Networking & Embedded Systems",
-    skills: [
-      "CCNA 1 & 2",
-      "Software-Defined Networking (SDN)",
-      "Cisco IOS XRv",
-      "OpenDaylight",
-      "GNS3 / QEMU",
-      "Network Protocols",
-      "Arduino / ESP32",
-      "RFID & GPS",
-      "IoT Solutions (Azure IoT, Twilio)",
-    ],
-  },
-  // CATEGORY 4: No Change
-  tools: {
-    title: "Tools & Productivity",
-    skills: [
-      "Git / GitHub",
-      "Matlab",
-      "Microsoft Office Suite",
-      "Tinkercad",
-    ],
-  },
-  // CATEGORY 5: No Change
-  soft: {
-    title: "Soft Skills",
-    skills: [
-      "Communication",
-      "Collaboration",
-      "Problem Solving",
-      "Leadership",
-      "Adaptability",
-      "Fast learner",
-      "Time Management",
-      "Critical Thinking",
-      "Continuous Learning",
-    ],
-  },
-};
+// =====================================================
+// Lightbox
+// =====================================================
+function setupLightbox(images) {
+  const box = document.getElementById("lightbox");
+  const img = document.getElementById("lb-image");
+  const cap = document.getElementById("lb-caption");
+  let current = 0;
 
-// ===============================
-// Populate skill previews in cards (NEW LOGIC)
-// ===============================
-document.querySelectorAll(".skill-category.modal-trigger").forEach((card) => {
-  const key = card.dataset.skill;
-  const tagsContainer = card.querySelector(".skill-tags");
+  const show = (i) => {
+    current = (i + images.length) % images.length;
+    img.src = src(images[current].src);
+    img.alt = images[current].caption;
+    cap.textContent = `Figure ${current + 1} of ${images.length}. ${images[current].caption}`;
+  };
+  const open = (i) => {
+    show(i);
+    box.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+  const close = () => {
+    box.hidden = true;
+    document.body.style.overflow = "";
+  };
 
-  if (skillsData[key]) {
-    const maxPreview = 5 // show up to 5 skills
-    const skills = skillsData[key].skills;
-
-    // Add preview skills
-    skills.slice(0, maxPreview).forEach((s) => {
-      const tag = document.createElement("span");
-      tag.className = "skill-tag";
-      tag.textContent = s;
-      tagsContainer.appendChild(tag);
-    });
-
-    // Add "+X more" if there are hidden skills
-    if (skills.length > maxPreview) {
-      const moreTag = document.createElement("span");
-      moreTag.className = "skill-tag more-hint";
-      moreTag.textContent = `+${skills.length - maxPreview} more`;
-      tagsContainer.appendChild(moreTag);
-    }
-  }
-});
-
-// Modal logic
-const modal = document.getElementById("skill-modal");
-if (modal) {
-  const modalTitle = document.getElementById("modal-title");
-  const modalSkills = document.getElementById("modal-skills");
-  const closeBtn = document.querySelector(".modal .close");
-
-  document.querySelectorAll(".modal-trigger").forEach((card) => {
-    card.addEventListener("click", () => {
-      const key = card.dataset.skill;
-      modalTitle.textContent = skillsData[key].title;
-      modalSkills.innerHTML = skillsData[key].skills
-        .map((s) => `<span class="skill-tag">${s}</span>`)
-        .join("");
-      modal.classList.remove("hidden");
-    });
+  document.querySelectorAll(".figure-frame").forEach((btn) =>
+    btn.addEventListener("click", () => open(Number(btn.dataset.index)))
+  );
+  box.querySelector(".lb-close").addEventListener("click", close);
+  box.querySelector(".lb-prev").addEventListener("click", () => show(current - 1));
+  box.querySelector(".lb-next").addEventListener("click", () => show(current + 1));
+  box.addEventListener("click", (e) => {
+    if (e.target === box) close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (box.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
   });
 
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.add("hidden");
-  });
-}
-
-// ===============================
-// Mobile Navigation Toggle
-// ===============================
-const menuToggle = document.querySelector(".menu-toggle");
-const navCenter = document.querySelector(".nav-center");
-
-if (menuToggle && navCenter) {
-  menuToggle.addEventListener("click", () => {
-    navCenter.classList.toggle("active");
-  });
-
-  // Close menu when clicking a link
-  navCenter.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navCenter.classList.remove("active");
-    });
-  });
+  const single = images.length < 2;
+  box.querySelector(".lb-prev").hidden = single;
+  box.querySelector(".lb-next").hidden = single;
 }
