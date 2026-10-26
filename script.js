@@ -117,7 +117,16 @@ const skillsData = [
   },
   {
     title: "Tools",
-    skills: ["Git / GitHub", "Linux", "Docker", "Jupyter", "LaTeX", "MATLAB"],
+    skills: [
+      "Git / GitHub",
+      "Linux",
+      "Docker",
+      "Jupyter",
+      "LaTeX",
+      "MATLAB",
+      "Excel, Word & PowerPoint",
+      "Power BI (introductory)",
+    ],
   },
 ];
 

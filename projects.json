@@ -159,6 +159,7 @@
     "status": "Completed",
     "duration": "5 months",
     "category": "Web Application",
+    "cover": "assets/images/service-me/service-me.png",
     "images": [],
     "videos": [
       { "src": "assets/videos/Service Me updated 2.mp4", "caption": "ServiceMe walkthrough" }
@@ -186,6 +187,7 @@
     "status": "Completed",
     "duration": "6 months",
     "category": "Social Platform",
+    "cover": "assets/images/connect/connect.png",
     "images": [],
     "videos": [
       { "src": "assets/videos/Connect_presentation.mp4", "caption": "Connect platform demo" }
